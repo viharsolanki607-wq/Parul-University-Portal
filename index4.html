@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parul University Academic Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background-image: url('backgroundimage2.jpg');
+    }
+
+    h1 {
+      color: #0055a5;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .month {
+      background:blanchedalmond;
+      border: 2px solid darkcyan;
+      border-radius: 8px;
+      padding: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .month:hover {
+      background: #0055a5;
+      color: #fff;
+    }
+
+    #event-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="color: black ; background-color: silver; border: solid 2px #0055a5; padding: 10px; border-radius: 5px ;">Parul University Academic Calendar 2025</h1>
+  
+
+  <div style="background-image: url(backgroundimage2.jpg);" class="calendar">
+    <div class="month" onclick="showEvents('January')">January</div>
+    <div class="month" onclick="showEvents('February')">February</div>
+    <div class="month" onclick="showEvents('March')">March</div>
+    <div class="month" onclick="showEvents('April')">April</div>
+    <div class="month" onclick="showEvents('May')">May</div>
+    <div class="month" onclick="showEvents('June')">June</div>
+    <div class="month" onclick="showEvents('July')">July</div>
+    <div class="month" onclick="showEvents('August')">August</div>
+    <div class="month" onclick="showEvents('September')">September</div>
+    <div class="month" onclick="showEvents('October')">October</div>
+    <div class="month" onclick="showEvents('November')">November</div>
+    <div class="month" onclick="showEvents('December')">December</div>
+  </div>
+
+  <div id="event-box"></div>
+
+  <script>
+    function showEvents(month) {
+      const events = {
+        January: "Semester starts, Orientation Week",
+        February: "Internal exams, Cultural Fest",
+        March: "Mid-semester break, Tech Symposium",
+        April: "Project submissions, Sports Meet",
+        May: "Final exams, Convocation",
+        June: "Summer vacation",
+        July: "New semester begins",
+        August: "Independence Day celebration",
+        September: "Internal exams, Hackathon",
+        October: "Navratri Fest, Career Fair",
+        November: "Final exams, Diwali break",
+        December: "Winter vacation, Alumni Meet"
+      };
+
+      const box = document.getElementById("event-box");
+      box.style.display = "block";
+      box.innerHTML = `<h2>${month} Events</h2><p>${events[month]}</p>`;
+    }
+  </script>
+
+</body>
+</html>

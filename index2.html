@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Students Attendance System</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; background: #fff;  background-image: url('backgroundimage2.jpg'); background-size: cover; background-position: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+    th, td { border: 3px solid black; padding: 8px; text-align: center; }
+    th { background: #eee; }
+    .present { color: green; font-weight: bold; }
+    .absent { color: red; font-weight: bold; }
+    .btn { padding: 4px 10px; border: 1px solid #bbb; border-radius: 4px; background: #f6f6f6; margin: 2px; cursor: pointer; }
+    .btn:disabled { background: #f4f4f4; color: #aaa; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center; border: solid 2px #0055a5; padding: 10px; border-radius: 5px; background-color: silver;">Students Attendance System</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Status</th>
+        <th>Mark Attendance</th>
+      </tr>
+    </thead>
+    <tbody id="students-tbody"></tbody>
+  </table>
+  <div id="summary"></div>
+  <script>
+    const students = [
+      {name: "Amit Sharma", status: null},
+      {name: "Ravi Kumar", status: null},
+      {name: "Priya Verma", status: null},
+      {name: "Karan Joshi", status: null},
+      {name: "Meena Kumari", status: null},
+      {name: "Simran Jain", status: null},
+      {name: "Rahul Gupta", status: null},
+      {name: "Nikhil Sharma", status: null},
+      {name: "Divya Sethi", status: null},
+      {name: "Anjali Singh", status: null},
+      {name: "Bhavesh Chauhan", status: null},
+      {name: "Neha Tripathi", status: null},
+      {name: "Jatin Mehra", status: null},
+      {name: "Aman Srivastava", status: null},
+      {name: "Sapna Agarwal", status: null},
+      {name: "Arjun Singh", status: null},
+      {name: "Riya Rathore", status: null},
+      {name: "Tanvi Dubey", status: null},
+      {name: "Alok Ranjan", status: null},
+      {name: "Deepak Kumar", status: null}
+    ];
+    function markAttendance(idx, present) {
+      students[idx].status = present ? "Present" : "Absent";
+      render();
+    }
+    function render() {
+      const tbody = document.getElementById('students-tbody');
+      tbody.innerHTML = students.map((s, idx) =>
+        `<tr>
+          <td>${s.name}</td>
+          <td class="${s.status === 'Present' ? 'present' : s.status === 'Absent' ? 'absent' : ''}">
+            ${s.status || '-'}
+          </td>
+          <td>
+            <button class="btn" onclick="markAttendance(${idx}, true)" ${s.status ? 'disabled' : ''}>Present</button>
+            <button class="btn" onclick="markAttendance(${idx}, false)" ${s.status ? 'disabled' : ''}>Absent</button>
+          </td>
+        </tr>`
+      ).join('');
+      const present = students.filter(s => s.status === "Present").length;
+      const absent = students.filter(s => s.status === "Absent").length;
+      document.getElementById('summary').textContent =
+        `Present: ${present}, Absent: ${absent}, Total: ${students.length} ; Attendance Percentage: ${((present / students.length) * 100).toFixed(2)}%`;
+    }
+    render();
+  </script>
+</body>
+</html>

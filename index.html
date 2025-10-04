@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parul University Portal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #e1f5fe);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #0055a5;
+      color: white;
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .nav-container {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 90%;
+      max-width: 1000px;
+    }
+
+    .nav-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, background-color 0.3s;
+      text-decoration: none;
+      color: #0055a5;
+    }
+
+    .nav-card:hover {
+      transform: translateY(-5px);
+      background-color: #e3f2fd;
+    }
+
+    .nav-card h2 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    .nav-card span {
+      font-size: 2em;
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Parul University Portal</h1>
+  </header>
+
+  <div class="nav-container">
+    <a href="index1.html" class="nav-card">
+      <span>🏫</span>
+      <h2>Parul University</h2>
+    </a>
+    <a href="index2.html" class="nav-card">
+      <span>📋</span>
+      <h2>Student Attendance System</h2>
+    </a>
+    <a href="index3.html" class="nav-card">
+      <span>🎉</span>
+      <h2>Upcoming University Events</h2>
+    </a>
+    <a href="index4.html" class="nav-card">
+      <span>📅</span>
+      <h2>Academic Calendar</h2>
+    </a>
+  </div>
+
+</body>
+</html>
